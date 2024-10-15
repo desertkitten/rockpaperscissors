@@ -39,3 +39,24 @@ function playRound(humanChoice, computerChoice) {
         computerScore++;
     }
 }
+
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+
+    console.log(`Final Scores - Human: ${humanScore}, Computer: ${computerScore}`);
+    if (humanScore > computerScore) {
+        console.log("Congratulations! You win!");
+    } else if (humanScore < computerScore) {
+        console.log("Sorry. You lose!");
+    } else {
+        console.log("It's a tie!");
+    }
+
+}
+
+
+playGame();
