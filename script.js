@@ -17,6 +17,21 @@ function playRound(playerSelection) {
     const computerSelection = computerPlay();
 
     if (playerSelection === computerSelection) {
-
+        resultDisplay.textContent = `It's a tie! You both chose ${playerSelection}.`;
+    } else if (
+        (playerSelection === 'rock' && computerSelection === 'scissors') ||
+        (playerSelection === 'paper' && computerSelection === 'rock') ||
+        (playerSelection === 'scissors' && computerSelection === 'paper')
+    ) {
+        playerScore++;
+        resultDisplay.textContent = `You win! ${playerSelection} beats ${computerSelection}.`;
+    } else {
+        computerScore++;
+        resultDisplay.textContent = `You lose! ${computerSelection} beats ${playerSelection}.`;
     }
+
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
+
+    checkWinner();
 }
