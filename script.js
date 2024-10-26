@@ -35,3 +35,26 @@ function playRound(playerSelection) {
 
     checkWinner();
 }
+
+// Function to check if there is a winner
+function checkWinner() {
+    if (playerScore === 5) {
+        winnerDisplay.textContent = 'Congratulations! You won the game!';
+        disableButtons();
+    } else if (computerScore === 5) {
+        winnerDisplay.textContent = 'Computer wins! Better luck next time!';
+        disableButtons();
+    }
+}
+
+// Disable the button after the game is done
+function disableButtons() {
+    document.getElementById('rock').disabled = true;
+    document.getElementById('paper').disabled = true;
+    document.getElementById('scissors').disabled = true;
+}
+
+// Event Listeners for buttons
+document.getElementById('rock').addEventListener('click', () => playRound('rock'));
+document.getElementById('paper').addEventListener('click', () => playRound('paper'));
+document.getElementById('scissors').addEventListener('click', () => playRound('scissors'));
